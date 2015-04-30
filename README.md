@@ -25,5 +25,7 @@ To schedule a shutdown and reboot you can use the shortcut script
     sudo shutdown-twice
 
 To uninstall the scripts use
+
     sudo make uninstall
+    
 [1]: http://askubuntu.com/questions/281039/on-shutdown-computer-reboots-when-started-via-wake-on-lan
