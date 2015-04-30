@@ -1,0 +1,22 @@
+#!/bin/bash
+
+### BEGIN INIT INFO
+# Provides:          init-shutdown
+# Required-Start:    $remote_fs
+# Required-Stop:     $remote_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: init-shutdown
+# Description:       Shuts system down immediately after booting. Removes itself from boot scripts so boot will be possible again.
+### END INIT INFO
+
+if [[ "$1" == "start" ]]
+then
+  # remove the init-shutdown script from rc to allow normal booting the next time
+  update-rc.d -f init-shutdown remove
+  # set recordfail of grub to 0 so that grub will not be stuck on next boot thinking it entered a boot loop
+  grub-editenv - set recordfail=0
+  # actually shut down the machine for power off
+  shutdown -P now 'shutdown on boot triggered by /etc/init.d/init-shutdown script'
+fi
+

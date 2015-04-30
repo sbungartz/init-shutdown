@@ -1,0 +1,5 @@
+#!/bin/bash
+# Reboot the computer and immediately have it shut down again.
+
+update-rc.d init-shutdown defaults
+shutdown -r now
