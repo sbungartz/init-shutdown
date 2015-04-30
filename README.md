@@ -1,4 +1,4 @@
-# init-shutdown                                                                                                                                                                                                 [0/0]
+# init-shutdown
 
 ## Why
 When I start my computer with wake on lan from a remote location and later turn it off via ssh it immediately boots again.
